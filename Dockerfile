@@ -5,11 +5,10 @@ ENV TZ Asia/Shanghai
 RUN apt-get update -y \
     && apt-get upgrade -y \
     && apt-get install -y tzdata \
-    && ln -sf /user/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && mkdir -p /usr/java \
     && apt-get remove openjdk* \
-    && apt install default-jdk   \
-    && apt install openjdk-11-jdk-headless
+    && apt install default-jdk  -y \
+    && apt install openjdk-11-jdk-headless -y
 # 环境变量
 ENV JAVA_HOME=/usr/java/default
 ENV PATH=$PATH:$JAVA_HOME/bin
